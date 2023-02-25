@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Isogram {
     /**
@@ -13,6 +14,12 @@ public class Isogram {
      * @return true if str is an isogram, false otherwise.
      */
     public boolean isIsogram(String str){
-        return false;
+        int[] map = new int[26];
+        Arrays.fill(map, 0);
+        for (char ch: str.toCharArray()){
+            map[ch-'a']++;
+            if (map[ch-'a'] > 1) return false;
+        }
+        return true;
     }
 }
